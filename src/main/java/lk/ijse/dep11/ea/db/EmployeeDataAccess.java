@@ -25,7 +25,7 @@ public class EmployeeDataAccess {
             STM_GET_ALL = connection.prepareStatement("SELECT * FROM employee");
             STM_GET_ALL_AND_IMAGE = connection.prepareStatement("SELECT * FROM employee JOIN profile_picture on employee.nic = profile_picture.employee_nic");
             STM_INSERT = connection
-                    .prepareStatement("INSERT INTO employee (id, name, dob, nic, contact, password, username, role, status, address, branch) VALUES (?, ?, ?,?,?,?,?,?,?,?)");
+                    .prepareStatement("INSERT INTO employee (id, name, dob, nic, contact, password, username, role, status, address, branch) VALUES (?, ?, ?,?,?,?,?,?,?,?,?)");
             STM_INSERT_IMG =connection.prepareStatement("INSERT INTO profile_picture (employee_nic, profile_picture) VALUES (?,?)");
             STM_UPDATE = connection
                     .prepareStatement("UPDATE employee SET name=?, address=? WHERE id=?");
@@ -39,18 +39,22 @@ public class EmployeeDataAccess {
     public static void saveEmployee(Employee employee) throws SQLException {
         STM_INSERT.setString(1, employee.getId());
         STM_INSERT.setString(2, employee.getName());
-        STM_INSERT.setString(3, employee.getNic());
-        STM_INSERT.setString(4, employee.getContact());
-        STM_INSERT.setString(5, employee.getPassword());
-        STM_INSERT.setString(6, employee.getUsername());
-        STM_INSERT.setString(7, employee.getRole());
-        STM_INSERT.setString(8, employee.getStatus());
-        STM_INSERT.setDate(9, Date.valueOf(employee.getDOB()));
-        STM_INSERT.setString(1,employee.getNic());
-        STM_INSERT.setBytes(2,employee.getByteImg());
+        STM_INSERT.setDate(3, java.sql.Date.valueOf(employee.getDOB()));
+        STM_INSERT.setString(4, employee.getNic());
+        STM_INSERT.setString(5, employee.getContact());
+        STM_INSERT.setString(6, employee.getPassword());
+        STM_INSERT.setString(7, employee.getUsername());
+        STM_INSERT.setString(8, employee.getRole());
+        STM_INSERT.setString(9, employee.getStatus());
+
+        STM_INSERT.setString(10, employee.getAddress());
+        STM_INSERT.setString(11,employee.getBranch());
+        STM_INSERT_IMG.setString(1,employee.getNic());
+        STM_INSERT_IMG.setBytes(2,employee.getByteImg());
 
 
         STM_INSERT.executeUpdate();
+        STM_INSERT_IMG.executeUpdate();
     }
         public static List<Employee> getAllCustomers() throws SQLException {
             ResultSet rst = STM_GET_ALL_AND_IMAGE.executeQuery();

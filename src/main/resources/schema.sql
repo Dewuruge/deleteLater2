@@ -21,4 +21,3 @@ CREATE TABLE IF NOT EXISTS profile_picture(
                                               CONSTRAINT fk2_enrollment FOREIGN KEY (employee_nic) REFERENCES employee(nic)
 
 );
-DROP TABLE profile_picture;

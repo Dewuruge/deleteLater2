@@ -23,6 +23,7 @@ import lk.ijse.dep11.ea.tm.Employee;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -93,6 +94,9 @@ public class AdminViewController {
 
 
     public void initialize() throws SQLException {
+
+        lblDate.setText(date);
+
         tblEmployeeDetails.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
         tblEmployeeDetails.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("name"));
         tblEmployeeDetails.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("nic"));
@@ -120,6 +124,14 @@ public class AdminViewController {
                 cbEmployeeManagementRole.setValue(cur.getRole());
                 cbEmployeeManagementStatus.setValue(cur.getStatus());
                 txtEmployeeManagementUsername.setText(cur.getUsername());
+                BufferedImage bufImage = null;
+                try {
+                    bufImage = ImageIO.read(new ByteArrayInputStream(cur.getByteImg()));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                WritableImage fxImage = SwingFXUtils.toFXImage(bufImage, null);
+                ivEmployeeManagement.setImage(fxImage);
 
             }
         });
@@ -193,14 +205,7 @@ public class AdminViewController {
 
     }
 
-    public void btnEmployeeManagementSaveOnAction(ActionEvent actionEvent) {
-        lblDate.setText(date);
-    }
-
-    public void btnEmployeeManagementDeleteOnAction(ActionEvent actionEvent) {
-    }
-
-    public void btnAddProfilePictureOnAction(ActionEvent actionEvent) throws IOException, SQLException {
+    public void btnEmployeeManagementSaveOnAction(ActionEvent actionEvent) throws SQLException {
         LocalDate date = LocalDate.now();
         cbEmployeeManagementStatus.setOnAction(event -> {
             // Get the selected text and print it
@@ -208,14 +213,29 @@ public class AdminViewController {
 
         });
 
-        Employee employee = new Employee(txtEmployeeManagementID.getText()
-                ,txtEmployeeManagementName.getText(),
-                txtNic.getText(),txtAddress.getText()
-                ,date,txtEmployeeManagementBranch.getText()
-                ,selectedStatus,
-                txtEmployeeManagementContact.getText(),txtNic.getText(),selectedRole,txtEmployeeManagementUsername.getText(),imageBytes);
-            EmployeeDataAccess.saveEmployee(employee);
+        Employee employee = new Employee(
+                txtEmployeeManagementID.getText(),
+                txtEmployeeManagementName.getText(),
+                txtNic.getText(),
+                txtAddress.getText(),
+                date,
+                txtEmployeeManagementBranch.getText(),
+                selectedStatus,
+                txtEmployeeManagementContact.getText(),
+                txtNic.getText(),
+                selectedRole,
+                txtEmployeeManagementUsername.getText(),
+                imageBytes);
+        EmployeeDataAccess.saveEmployee(employee);
 
+
+
+    }
+
+    public void btnEmployeeManagementDeleteOnAction(ActionEvent actionEvent) {
+    }
+
+    public void btnAddProfilePictureOnAction(ActionEvent actionEvent) throws IOException, SQLException {
 
     }
 
