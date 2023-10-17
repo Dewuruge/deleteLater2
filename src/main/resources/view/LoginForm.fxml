@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="root" minHeight="-Infinity" minWidth="-Infinity" prefHeight="423.0" prefWidth="317.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.ea.controller.LoginFormController">
+   <children>
+      <AnchorPane fx:id="apLoginForm" layoutX="9.0" layoutY="12.0" prefHeight="400.0" prefWidth="300.0" styleClass="white-form" stylesheets="@../CSS/loginDesign.css">
+         <children>
+            <Label layoutX="40.0" layoutY="55.0" styleClass="head-label" stylesheets="@../CSS/loginDesign.css" text="Login Account" textFill="#800f0f">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtUserName" layoutX="40.0" layoutY="117.0" prefHeight="30.0" prefWidth="220.0" promptText="User Name" />
+            <PasswordField fx:id="txtPassword" layoutX="40.0" layoutY="160.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" />
+            <Button fx:id="btnLogin" layoutX="40.0" layoutY="240.0" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="30.0" prefWidth="220.0" styleClass="adminAndEmployee-btn" stylesheets="@../CSS/loginDesign.css" text="Login" textFill="#daddd8" />
+            <Hyperlink fx:id="linkForgotPassword" layoutX="40.0" layoutY="212.0" onAction="#linkForgotPasswordOnAction" text="Forgot Password?" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

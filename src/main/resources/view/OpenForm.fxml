@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="428.0" prefWidth="643.0" style="-fx-border-color: RED; -fx-border-radius: 20;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.ea.controller.OpenFormController">
+   <children>
+      <Label alignment="CENTER" layoutX="6.0" layoutY="69.0" prefHeight="72.0" prefWidth="631.0" styleClass="head-label1" stylesheets="@../CSS/loginDesign.css" text=" Attendance Management System" textAlignment="JUSTIFY">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="199.0" fitWidth="472.0" layoutX="82.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/img.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

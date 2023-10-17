@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="688.0" prefWidth="1023.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.ea.controller.AdminViewController">
+   <children>
+      <AnchorPane layoutX="276.0" layoutY="13.0" prefHeight="60.0" prefWidth="761.0" stylesheets="@../CSS/loginDesign.css">
+         <styleClass>
+            <String fx:value="background-color" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </AnchorPane>
+      <AnchorPane fx:id="apTermination" layoutX="276.0" layoutY="78.0" prefHeight="604.0" prefWidth="761.0" visible="false">
+         <children>
+            <Pane prefHeight="105.0" prefWidth="761.0" styleClass="vbox" stylesheets="@../CSS/loginDesign.css">
+               <children>
+                  <GridPane layoutX="127.0" layoutY="23.0" prefHeight="60.0" prefWidth="578.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <HBox prefHeight="24.0" prefWidth="301.0" spacing="40.0" stylesheets="@../CSS/loginDesign.css">
+                           <children>
+                              <Label prefHeight="33.0" prefWidth="64.0" styleClass="head-label" stylesheets="@../CSS/loginDesign.css" text="ID           :" textFill="#942626">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtTerminationID" styleClass="text-field" stylesheets="@../CSS/loginDesign.css" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0" GridPane.rowIndex="1">
+                           <children>
+                              <Label prefHeight="42.0" prefWidth="63.0" styleClass="head-label" stylesheets="@../CSS/loginDesign.css" text="BRANCH :" textFill="#942626">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtTerminationBranch" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0" GridPane.columnIndex="1">
+                           <children>
+                              <Label prefHeight="56.0" prefWidth="69.0" styleClass="head-label" stylesheets="@../CSS/loginDesign.css" text="NAME       :" textFill="#942626">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtTerminationName" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="29.0" prefWidth="293.0" spacing="40.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <Label prefHeight="39.0" prefWidth="69.0" styleClass="head-label" stylesheets="@../CSS/loginDesign.css" text="CONTACT :" textFill="#942626">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtTerminationContact" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </GridPane>
+                  <AnchorPane layoutX="8.0" layoutY="4.0" prefHeight="98.0" prefWidth="95.0" styleClass="image-pane" stylesheets="@../CSS/loginDesign.css">
+                     <children>
+                        <ImageView fitHeight="92.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </Pane>
+            <TableView fx:id="tblTermination" layoutX="11.0" layoutY="176.0" prefHeight="200.0" prefWidth="737.0" stylesheets="@../CSS/loginDesign.css">
+              <columns>
+                <TableColumn prefWidth="133.0" text="ID" />
+                <TableColumn prefWidth="277.0" text="REASON" />
+                  <TableColumn prefWidth="138.0" text="REJECT" />
+                  <TableColumn prefWidth="187.0" text="ACCEPT" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="apEmployeeStatus" layoutX="276.0" layoutY="77.0" prefHeight="604.0" prefWidth="729.0" visible="false">
+         <children>
+            <Pane fx:id="pDetails2" layoutY="1.0" prefHeight="105.0" prefWidth="761.0" styleClass="vbox" stylesheets="@../CSS/loginDesign.css">
+               <children>
+                  <GridPane layoutX="127.0" layoutY="23.0" prefHeight="60.0" prefWidth="578.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <HBox prefHeight="24.0" prefWidth="301.0" spacing="40.0" stylesheets="@../CSS/loginDesign.css">
+                           <children>
+                              <Label prefHeight="33.0" prefWidth="64.0" styleClass="head-label" stylesheets="@../CSS/loginDesign.css" text="ID           :" textFill="#942626">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtEmployeeStatusID" styleClass="text-field" stylesheets="@../CSS/loginDesign.css" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0" GridPane.rowIndex="1">
+                           <children>
+                              <Label prefHeight="42.0" prefWidth="63.0" styleClass="head-label" stylesheets="@../CSS/loginDesign.css" text="BRANCH :" textFill="#942626">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtEmployeeStatusBranch" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0" GridPane.columnIndex="1">
+                           <children>
+                              <Label prefHeight="56.0" prefWidth="69.0" styleClass="head-label" stylesheets="@../CSS/loginDesign.css" text="NAME       :" textFill="#942626">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtEmployeeStatusName" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="29.0" prefWidth="293.0" spacing="40.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <Label prefHeight="39.0" prefWidth="69.0" styleClass="head-label" stylesheets="@../CSS/loginDesign.css" text="CONTACT :" textFill="#942626">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtEmployeeStatusContact" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </GridPane>
+                  <AnchorPane layoutX="9.0" layoutY="4.0" prefHeight="98.0" prefWidth="95.0" styleClass="image-pane" stylesheets="@../CSS/loginDesign.css">
+                     <children>
+                        <ImageView fitHeight="92.0" fitWidth="95.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </Pane>
+            <TableView fx:id="tblReport" layoutX="21.0" layoutY="186.0" prefHeight="280.0" prefWidth="721.0" styleClass="tbManageStatus" stylesheets="@../CSS/loginDesign.css">
+              <columns>
+                <TableColumn prefWidth="157.0" text="DATE" />
+                <TableColumn prefWidth="157.0" text="IN" />
+                  <TableColumn prefWidth="186.0" text="OUT" />
+                  <TableColumn prefWidth="192.0" text="STATUS" />
+              </columns>
+            </TableView>
+            <GridPane alignment="CENTER_LEFT" layoutX="21.0" layoutY="473.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="690.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+                     <children>
+                        <Label styleClass="head-label" stylesheets="@../CSS/loginDesign.css" text="Total working days : " textFill="#942626" />
+                        <TextField fx:id="txtWorkdays" styleClass="text-field" stylesheets="@../CSS/loginDesign.css" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1" />
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="30.0" GridPane.columnIndex="1">
+                     <children>
+                        <Label styleClass="head-label" stylesheets="@../CSS/loginDesign.css" text="Attendance : " textFill="#942626" />
+                        <TextField fx:id="txtAttendance" styleClass="text-field" stylesheets="@../CSS/loginDesign.css" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="363.0" spacing="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Label styleClass="head-label" stylesheets="@../CSS/loginDesign.css" text="Percentage : " textFill="#942626" />
+                        <TextField fx:id="txtPercentage" styleClass="text-field" stylesheets="@../CSS/loginDesign.css" />
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+            <GridPane layoutX="26.0" layoutY="105.0" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="72.0" prefWidth="681.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <HBox alignment="CENTER_LEFT" minWidth="-Infinity" prefHeight="60.0" prefWidth="229.0" spacing="10.0" GridPane.rowIndex="1">
+                     <children>
+                        <Label stylesheets="@../CSS/loginDesign.css" text="From :" textFill="#942626" />
+                        <DatePicker fx:id="dpFrom" prefHeight="24.0" prefWidth="140.0" style="-fx-background-color: brown;" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" depthTest="ENABLE" prefHeight="375.0" prefWidth="231.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Label stylesheets="@../CSS/loginDesign.css" text="To : " textFill="#942626" />
+                        <DatePicker fx:id="dpTo" prefHeight="24.0" prefWidth="140.0" style="-fx-background-color: brown;" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="85.0" prefWidth="219.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <children>
+                        <Button fx:id="btnPrintReport" mnemonicParsing="false" styleClass="btnAdmin" stylesheets="@../CSS/loginDesign.css" text="Print Report" />
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+      <TextField fx:id="txtSearch" layoutX="302.0" layoutY="37.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="24.0" prefWidth="201.0" promptText="Enter ID number" styleClass="text-field" stylesheets="@../CSS/loginDesign.css" visible="false" />
+      <Label fx:id="lblDate" layoutX="925.0" layoutY="27.0" text="YYYY/MM/DD" textFill="#942626" />
+      <AnchorPane fx:id="apEmployeeManagement" layoutX="289.0" layoutY="90.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="761.0" stylesheets="@../CSS/loginDesign.css">
+         <children>
+            <TableView fx:id="tblEmployeeDetails" layoutX="14.0" layoutY="350.0" prefHeight="232.0" prefWidth="721.0" style="-fx-background-radius: 10px;" stylesheets="@../CSS/loginDesign.css">
+               <columns>
+                  <TableColumn prefWidth="68.0" text="ID" />
+                  <TableColumn prefWidth="98.0" text="NAME" />
+                  <TableColumn prefWidth="95.0" text="NIC" />
+                  <TableColumn prefWidth="114.0" text="ADDRESS" />
+                  <TableColumn prefWidth="87.0" text="DOB" />
+                  <TableColumn prefWidth="85.0" text="BRANCH" />
+                  <TableColumn prefWidth="83.0" text="STATUS" />
+                  <TableColumn prefWidth="90.0" text="CONTACT" />
+               </columns>
+            </TableView>
+            <GridPane layoutX="1.0" layoutY="120.0" prefHeight="222.0" prefWidth="721.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="555.0" minWidth="10.0" prefWidth="342.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="362.0" minWidth="10.0" prefWidth="343.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="67.0" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="116.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="142.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="142.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="142.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="142.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0" />
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0" stylesheets="@../CSS/loginDesign.css" GridPane.rowIndex="1">
+                     <children>
+                        <Label styleClass="head-label" text="NAME       :" textFill="#a12b2b" />
+                        <TextField fx:id="txtEmployeeManagementName" styleClass="text-field" stylesheets="@../CSS/loginDesign.css" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0" stylesheets="@../CSS/loginDesign.css" GridPane.rowIndex="2">
+                     <children>
+                        <Label styleClass="head-label" text="NIC           :" textFill="#a12b2b" />
+                        <TextField fx:id="txtNic" styleClass="text-field" stylesheets="@../CSS/loginDesign.css" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0" stylesheets="@../CSS/loginDesign.css" GridPane.rowIndex="3">
+                     <children>
+                        <Label styleClass="head-label" text="ADDRESS :" textFill="#a12b2b" />
+                        <TextField fx:id="txtAddress" styleClass="text-field" stylesheets="@../CSS/loginDesign.css" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="84.0" prefWidth="336.0" GridPane.rowIndex="5">
+                     <children>
+                        <Button fx:id="btnEmployeeManagementSave" mnemonicParsing="false" onAction="#btnEmployeeManagementSaveOnAction" styleClass="btnAdmin" stylesheets="@../CSS/loginDesign.css" text="Save" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0" GridPane.columnIndex="1">
+                     <children>
+                        <Label styleClass="head-label" stylesheets="@../CSS/loginDesign.css" text="DOB        :" textFill="#a12b2b" />
+                        <TextField fx:id="txtDOB" styleClass="text-field" stylesheets="@../CSS/loginDesign.css" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Label styleClass="head-label" stylesheets="@../CSS/loginDesign.css" text="BRANCH  :" textFill="#a12b2b" />
+                        <TextField fx:id="txtEmployeeManagementBranch" styleClass="text-field" stylesheets="@../CSS/loginDesign.css" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <Label styleClass="head-label" stylesheets="@../CSS/loginDesign.css" text="STATUS   :" textFill="#a12b2b" />
+                        <ComboBox fx:id="cbEmployeeManagementStatus" prefHeight="24.0" prefWidth="171.0" styleClass="text-field" stylesheets="@../CSS/loginDesign.css" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+                     <children>
+                        <Label prefWidth="80.0" styleClass="head-label" stylesheets="@../CSS/loginDesign.css" text="ID             :" textFill="#a12b2b" />
+                        <TextField fx:id="txtEmployeeManagementID" styleClass="text-field" stylesheets="@../CSS/loginDesign.css" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <children>
+                        <Label styleClass="head-label" stylesheets="@../CSS/loginDesign.css" text="CONTACT:" textFill="#a12b2b" />
+                        <TextField fx:id="txtEmployeeManagementContact" prefHeight="26.0" prefWidth="171.0" styleClass="text-field" stylesheets="@../CSS/loginDesign.css" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="367.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <children>
+                        <Button fx:id="btnEmployeeManagementDelete" mnemonicParsing="false" onAction="#btnEmployeeManagementDeleteOnAction" styleClass="btnAdmin" stylesheets="@../CSS/loginDesign.css" text="Delete" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0" stylesheets="@../CSS/loginDesign.css" GridPane.rowIndex="4">
+                     <children>
+                        <Label styleClass="head-label" text="ROLE       :" textFill="#a12b2b" />
+                        <ComboBox fx:id="cbEmployeeManagementRole" prefHeight="24.0" prefWidth="171.0" styleClass="text-field" stylesheets="@../CSS/loginDesign.css" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <children>
+                        <Label styleClass="head-label" stylesheets="@../CSS/loginDesign.css" text="USERNAME:" textFill="#a12b2b" />
+                        <TextField fx:id="txtEmployeeManagementUsername" prefHeight="26.0" prefWidth="171.0" styleClass="text-field" stylesheets="@../CSS/loginDesign.css" />
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+            <Pane layoutX="-13.0" layoutY="-12.0" prefHeight="105.0" prefWidth="761.0" stylesheets="@../CSS/loginDesign.css">
+               <children>
+                  <GridPane layoutX="127.0" layoutY="23.0" prefHeight="60.0" prefWidth="289.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <HBox prefHeight="24.0" prefWidth="301.0" spacing="40.0" stylesheets="@../CSS/loginDesign.css">
+                           <children>
+                              <Button fx:id="btnAddProfilePicture" mnemonicParsing="false" onAction="#btnAddProfilePictureOnAction" prefHeight="24.0" prefWidth="62.0" styleClass="btnAdmin" stylesheets="@../CSS/loginDesign.css" text="Add" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0" GridPane.rowIndex="1">
+                           <children>
+                              <Button fx:id="btnDeleteProfilePicture" mnemonicParsing="false" onAction="#btnDeleteProfilePictureOnAction" styleClass="btnAdmin" stylesheets="@../CSS/loginDesign.css" text="Delete" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </GridPane>
+                  <AnchorPane fx:id="apEmployeeManagementImage" layoutX="9.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="98.0" prefWidth="99.0" styleClass="image-pane" stylesheets="@../CSS/loginDesign.css">
+                     <children>
+                        <ImageView fx:id="ivEmployeeManagement" fitHeight="88.0" fitWidth="81.0" layoutX="9.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </AnchorPane>
+                  <Button fx:id="btnImport" layoutX="11.0" layoutY="75.0" mnemonicParsing="false" onAction="#btnImportOnAction" prefHeight="24.0" prefWidth="96.0" stylesheets="@../CSS/loginDesign.css" text="Import">
+                     <styleClass>
+                        <String fx:value="btnAdmin" />
+                        <String fx:value="import-btn" />
+                     </styleClass>
+                  </Button>
+               </children>
+               <styleClass>
+                  <String fx:value="vbox" />
+                  <String fx:value="shadow" />
+               </styleClass>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <VBox prefHeight="688.0" prefWidth="276.0" stylesheets="@../CSS/loginDesign.css" AnchorPane.leftAnchor="0.0">
+         <children>
+            <Pane prefHeight="161.0" prefWidth="289.0">
+               <children>
+                  <ImageView fitHeight="88.0" fitWidth="262.0" layoutX="14.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/img.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Button fx:id="btnEmployeeStatus" blendMode="SRC_ATOP" mnemonicParsing="false" onAction="#btnAdminOnAction" prefHeight="77.0" prefWidth="307.0" styleClass="btnAdmin" stylesheets="@../CSS/loginDesign.css" text="Employee Status" textAlignment="JUSTIFY" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btnTermination" blendMode="SRC_ATOP" mnemonicParsing="false" onAction="#btnAdminOnAction" prefHeight="77.0" prefWidth="307.0" styleClass="btnAdmin" stylesheets="@../CSS/loginDesign.css" text="Termination">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnEmployeeManagement" blendMode="SRC_ATOP" mnemonicParsing="false" onAction="#btnAdminOnAction" prefHeight="77.0" prefWidth="307.0" styleClass="btnAdmin" stylesheets="@../CSS/loginDesign.css" text="Employee Management">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button blendMode="SRC_ATOP" mnemonicParsing="false" prefHeight="77.0" prefWidth="307.0" styleClass="btnAdmin" stylesheets="@../CSS/loginDesign.css" text="Button">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnExit" blendMode="SRC_ATOP" mnemonicParsing="false" onAction="#btnAdminOnAction" prefHeight="77.0" prefWidth="307.0" styleClass="btnAdmin" stylesheets="@../CSS/loginDesign.css" text="Exit">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+         <styleClass>
+            <String fx:value="vbox" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </VBox>
+      <Button fx:id="btnSearch" layoutX="518.0" layoutY="36.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#btnSearchOnAction" styleClass="btnAdmin" stylesheets="@../CSS/loginDesign.css" text="Search" visible="false" />
+   </children>
+</AnchorPane>
