@@ -1,12 +1,12 @@
 .gradient{
-    -fx-border-color: linear-gradient(to bottom right, #6e1927, #3f0202);
+    -fx-border-color: linear-gradient(to bottom right, #177011, #065210);
 }
 /*.white-form{*/
 /*    -fx-background-color: #fff;*/
 /*}*/
 
 .head-label{
-    -fx-border-color: #6e1927;
+    -fx-border-color: #196e1a;
     -fx-border-width: 0 0 0 3px;
     -fx-padding: 0 0 0 5px;
 
@@ -16,7 +16,7 @@
 
 
 .login-btn{
-    -fx-border-color: linear-gradient(to bottom right, #6e1927, #3f0202);
+    -fx-border-color: linear-gradient(to bottom right, #117013, #095206);
     -fx-background-radius: 5px;
     -fx-cursor: hand;
     -fx-text-fill: #fff;
@@ -25,7 +25,7 @@
 }
 
 .login-btn:hover{
-    -fx-background-color: linear-gradient(to bottom right, #fd8989, #b20d30);
+    -fx-background-color: linear-gradient(to bottom right, #7fdc71, #2faf21);
     -fx-font-weight: bold;
 }
 
@@ -34,16 +34,16 @@
 
     -fx-border-width: 1px;
     -fx-border-radius: 5px;
-    -fx-border-color: linear-gradient(to bottom right, rgba(110, 25, 39, 0.18), rgba(63, 2, 2, 0.19));
+    -fx-border-color: linear-gradient(to bottom right, rgba(43, 110, 25, 0.18), rgba(13, 63, 2, 0.19));
 
 
 }
 .text-field:hover{
-    fx-effect: dropshadow(gaussian,#6495ED,20,0.0,0,0);
+    fx-effect: dropshadow(gaussian, #92ed64,20,0.0,0,0);
 
     -fx-border-radius: 3px;
     -fx-background-radius: 3px;
-    -fx-background-color: linear-gradient(to bottom right, #fd8989, #efa0a0);
+    -fx-background-color: linear-gradient(to bottom right, #a2fd89, #c6efa0);
 
 }
 .text-field:focused{
@@ -51,7 +51,7 @@
     -fx-background-radius: 3px;
     -fx-border-width: 2px;
     -fx-background-color: transparent;
-    -fx-border-color: linear-gradient(to bottom right, #6e1927, #3f0202);
+    -fx-border-color: linear-gradient(to bottom right, #2e6e19, #113f02);
 
 }
 
@@ -68,7 +68,7 @@
     -fx-text-fill: #000;
     -fx-border-color: #fff;
     -fx-border-radius: 2px;
-    -fx-background-color: linear-gradient(to bottom right, #fd8989, #b20d30);
+    -fx-background-color: linear-gradient(to bottom right, #a6fd89, #23b20d);
 }
 .create-btn:focused{
     -fx-background-color:#fff ;
@@ -79,8 +79,8 @@
 /*----------------------------------------------------------------------------------------------------*/
 .head-label1{
     -fx-text-fill: #fff;
-    -fx-background-color: linear-gradient(to bottom right, #fd8989, #b20d30);
-    -fx-border-color: linear-gradient(to bottom right, #6e1927, #3f0202);
+    -fx-background-color: linear-gradient(to bottom right, #89fd8b, #2bb20d);
+    -fx-border-color: linear-gradient(to bottom right, #1c6e19, #083f02);
     -fx-border-width: 0 0 0 3px;
     -fx-padding: 0 0 0 5px;
     -fx-background-radius: 0px 10px 10px 0px;
@@ -88,7 +88,7 @@
 
 }
 .adminAndEmployee-btn{
-    -fx-background-color: linear-gradient(to bottom right, #8d1e1e, #b20d30);
+    -fx-background-color: linear-gradient(to bottom right, #1e8d20, #0db21b);
 
     -fx-cursor: hand;
     -fx-text-fill: #fff;
@@ -96,14 +96,14 @@
 
 }
 .adminAndEmployee-btn:hover{
-    -fx-background-color: linear-gradient(to bottom right, #8d1e1e, #b20d30);
+    -fx-background-color: linear-gradient(to bottom right, #1e8d30, #0db21b);
     -fx-font-weight: bold;
 }
 /*For Admin From*/
 /*------------------------------------------------------------------------------------------*/
 
 .vbox{
-    -fx-background-color: linear-gradient(to bottom right, rgba(213, 118, 118, 0.87), rgba(252, 53, 53, 0.78));
+    -fx-background-color: linear-gradient(to bottom right, rgba(19, 171, 22, 0.71), rgba(12, 112, 17, 0.79));
     -fx-background-radius: 0 20px 20px 0;
     /*-fx-background-color: rgba(252, 53, 53, 0.78);*/
 }
@@ -116,40 +116,40 @@
     -fx-shape: "M 50 0 A 50 50 0 1 0 50 100 A 50 50 0 1 0 50 0";
 }
 .btnAdmin{
-    -fx-background-color: linear-gradient(to bottom right, rgba(141, 30, 30, 0.71), rgba(178, 13, 48, 0.68));
+    -fx-background-color: linear-gradient(to bottom right, rgba(29, 171, 19, 0.71), rgba(12, 112, 17, 0.79));
 
     -fx-text-fill:#fff ;
 }
 .btnAdmin:hover{
     /*-fx-background-color: #286155;*/
-    -fx-text-fill: #8f0b0b;
-    -fx-border-color: #6c1515;
+    -fx-text-fill: #0b8f12;
+    -fx-border-color: #216c15;
     -fx-border-radius: 2px;
     -fx-border-width: 3px;
 
-    -fx-background-color: linear-gradient(to bottom right, rgba(253, 137, 137, 0.76), rgba(217, 100, 125, 0.78));
+    -fx-background-color: linear-gradient(to bottom right, rgba(152, 253, 137, 0.76), rgba(116, 217, 100, 0.78));
 }
 .btnAdmin:focused{
 
     -fx-background-color:#fff ;
-    -fx-text-fill: #830e0e;
+    -fx-text-fill: #35830e;
 
 }
 /*For Admin Manage-Status*/
 .table-view{
     -fx-background-radius: 10px;
-    -fx-background-color: rgb(236, 220, 220);
-    -fx-text-fill: #6c1515;
+    -fx-background-color: rgb(225, 236, 220);
+    -fx-text-fill: #326c15;
     -fx-border-radius: 0 0 10px 10px;
-    -fx-border-color: #6c1515;
+    -fx-border-color: #1e6c15;
     -fx-padding: 0px;
 }
 .table-view .table-column{
     -fx-alignment: CENTER;
 }
 .table-view .column-header-background{
-    -fx-background-color: rgb(241, 179, 179);
-    -fx-border-color:#6c1515 ;
+    -fx-background-color: rgb(204, 241, 179);
+    -fx-border-color: #2e6c15;
 
     -f-background-radius: 10px 10px 0px 0px;
 
@@ -162,26 +162,26 @@
 }
 .table-view .column-header{
 
-    -fx-text-fill: #6c1515;
+    -fx-text-fill: #216c15;
     /*-fx-font-size: "Arial";*/
-    -fx-border-color:  #6c1515;
+    -fx-border-color: #2b6c15;
 }
 
 .btnReport{
-    -fx-background-color: linear-gradient(to bottom right, rgba(141, 30, 30, 0.71), rgba(178, 13, 48, 0.68));
+    -fx-background-color: linear-gradient(to bottom right, rgba(54, 141, 30, 0.71), rgba(24, 178, 13, 0.68));
 
     -fx-text-fill:#fff ;
 }
 .btnReport:hover{
     /*-fx-background-color: #286155;*/
-    -fx-text-fill: #8f0b0b;
+    -fx-text-fill: #288f0b;
     -fx-border-color: #fff;
     -fx-border-radius: 2px;
-    -fx-background-color: linear-gradient(to bottom right, rgba(253, 137, 137, 0.76), rgba(178, 13, 48, 0.78));
+    -fx-background-color: linear-gradient(to bottom right, rgba(137, 253, 152, 0.76), rgba(43, 178, 13, 0.78));
 }
 .btnReport:focused{
     -fx-background-color:#fff ;
-    -fx-text-fill: #830e0e;
+    -fx-text-fill: #1a830e;
 
 }
 
@@ -190,45 +190,45 @@
 
 
 .shadow{
-    -fx-effect:dropShadow(three-pass-box, rgba(255, 47, 0, 0.5),6,0,0,0);
+    -fx-effect:dropShadow(three-pass-box, rgba(17, 255, 0, 0.5),6,0,0,0);
 
 }
 .background-color{
-    -fx-background-color: rgb(236, 220, 220);
+    -fx-background-color: rgb(224, 236, 220);
     -fx-background-radius: 0px 20px 20px 0px;
 }
 
 .image-pane{
-    -fx-border-color: #6c1515;
+    -fx-border-color: #1b6c15;
     -fx-border-radius: 10px;
     -fx-border-width: 2px;
-    -fx-effect:dropShadow(three-pass-box, rgba(224, 54, 54, 0.5),6,0,0,0);
-    -fx-background-color: rgb(245, 118, 118);
+    -fx-effect:dropShadow(three-pass-box, rgba(77, 224, 54, 0.5),6,0,0,0);
+    -fx-background-color: rgb(175, 245, 118);
     -fx-background-radius: 10px 10px 10px 10px;
 }
 .import-btn{
     -fx-background-radius: 0 0 10px 10px;
-    -fx-background-color: linear-gradient(to bottom right, rgba(141, 30, 30, 0.22), rgba(178, 13, 48, 0.18));
+    -fx-background-color: linear-gradient(to bottom right, rgba(71, 141, 30, 0.22), rgba(49, 178, 13, 0.18));
 }
 
 
 .main-button{
-    -fx-background-color: linear-gradient(to bottom right, rgba(141, 30, 30, 0.71), rgba(178, 13, 48, 0.68));
+    -fx-background-color: linear-gradient(to bottom right, rgba(21, 86, 6, 0.71), rgba(15, 61, 8, 0.79));
 
     -fx-text-fill:#fff ;
 }
 .main-button:hover{
     /*-fx-background-color: #286155;*/
-    -fx-text-fill: #8f0b0b;
+    -fx-text-fill: #408f0b;
 
     -fx-border-width: 3px;
     -fx-background-radius: 30px 10px 10px 30px;
 
-    -fx-background-color: linear-gradient(to bottom right, rgba(253, 137, 137, 0.76), rgba(217, 100, 125, 0.78));
+    -fx-background-color: linear-gradient(to bottom right, rgba(166, 253, 137, 0.76), rgba(129, 217, 100, 0.78));
 }
 .main-button:focused{
 
     -fx-background-color:#fff ;
-    -fx-text-fill: #830e0e;
+    -fx-text-fill: #1e830e;
 
 }

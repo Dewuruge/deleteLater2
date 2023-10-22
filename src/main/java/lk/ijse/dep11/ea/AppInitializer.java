@@ -24,7 +24,7 @@ public class AppInitializer extends Application {
 
         primaryStage.setScene(new Scene(FXMLLoader
                 .load(getClass().getResource("/view/LoginForm.fxml"))));
-        primaryStage.setTitle("Hello JDBC");
+        primaryStage.setTitle("Login");
         primaryStage.setResizable(false);
         primaryStage.show();
         primaryStage.centerOnScreen();

@@ -18,6 +18,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="root" prefHeight="688.0" prefWidth="1023.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.ea.controller.AdminViewController">
@@ -39,10 +40,10 @@
          <children>
             <Pane prefHeight="105.0" prefWidth="761.0" styleClass="vbox" stylesheets="@../CSS/loginDesign.css">
                <children>
-                  <GridPane layoutX="127.0" layoutY="23.0" prefHeight="60.0" prefWidth="578.0">
+                  <GridPane layoutX="127.0" layoutY="23.0" prefHeight="60.0" prefWidth="622.0">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="301.0" minWidth="10.0" prefWidth="291.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="298.0" minWidth="10.0" prefWidth="287.0" />
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -51,7 +52,7 @@
                      <children>
                         <HBox prefHeight="24.0" prefWidth="301.0" spacing="40.0" stylesheets="@../CSS/loginDesign.css">
                            <children>
-                              <Label prefHeight="33.0" prefWidth="64.0" styleClass="head-label" stylesheets="@../CSS/loginDesign.css" text="ID           :" textFill="#942626">
+                              <Label prefHeight="38.0" prefWidth="64.0" styleClass="head-label" stylesheets="@../CSS/loginDesign.css" text="ID           :" textFill="#942626">
                                  <font>
                                     <Font size="11.0" />
                                  </font>
@@ -61,12 +62,12 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0" GridPane.rowIndex="1">
                            <children>
-                              <Label prefHeight="42.0" prefWidth="63.0" styleClass="head-label" stylesheets="@../CSS/loginDesign.css" text="BRANCH :" textFill="#942626">
+                              <Label prefHeight="38.0" prefWidth="64.0" styleClass="head-label" stylesheets="@../CSS/loginDesign.css" text="BRANCH :" textFill="#942626">
                                  <font>
                                     <Font size="11.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtTerminationBranch" />
+                              <TextField fx:id="txtTerminationBranch" prefHeight="26.0" prefWidth="173.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0" GridPane.columnIndex="1">
@@ -91,7 +92,7 @@
                         </HBox>
                      </children>
                   </GridPane>
-                  <AnchorPane layoutX="8.0" layoutY="4.0" prefHeight="98.0" prefWidth="95.0" styleClass="image-pane" stylesheets="@../CSS/loginDesign.css">
+                  <AnchorPane layoutX="3.0" layoutY="3.0" prefHeight="98.0" prefWidth="95.0" styleClass="image-pane" stylesheets="@../CSS/loginDesign.css">
                      <children>
                         <ImageView fitHeight="92.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
@@ -106,6 +107,8 @@
                   <TableColumn prefWidth="187.0" text="ACCEPT" />
               </columns>
             </TableView>
+            <Button fx:id="btnRefresh" layoutX="681.0" layoutY="134.0" mnemonicParsing="false" onAction="#btnRefreshOnAction" styleClass="btnAdmin" stylesheets="@../CSS/loginDesign.css" text="Refresh" />
+
          </children>
       </AnchorPane>
       <AnchorPane fx:id="apEmployeeStatus" layoutX="276.0" layoutY="77.0" prefHeight="604.0" prefWidth="729.0" visible="false">
@@ -164,7 +167,7 @@
                         </HBox>
                      </children>
                   </GridPane>
-                  <AnchorPane layoutX="9.0" layoutY="4.0" prefHeight="98.0" prefWidth="95.0" styleClass="image-pane" stylesheets="@../CSS/loginDesign.css">
+                  <AnchorPane layoutX="3.0" layoutY="3.0" prefHeight="98.0" prefWidth="95.0" styleClass="image-pane" stylesheets="@../CSS/loginDesign.css">
                      <children>
                         <ImageView fitHeight="92.0" fitWidth="95.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
@@ -176,7 +179,7 @@
                 <TableColumn prefWidth="157.0" text="DATE" />
                 <TableColumn prefWidth="157.0" text="IN" />
                   <TableColumn prefWidth="186.0" text="OUT" />
-                  <TableColumn prefWidth="192.0" text="STATUS" />
+                  <TableColumn prefWidth="220.0" text="STATUS" />
               </columns>
             </TableView>
             <GridPane alignment="CENTER_LEFT" layoutX="21.0" layoutY="473.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="690.0">
@@ -244,7 +247,7 @@
       </AnchorPane>
       <TextField fx:id="txtSearch" layoutX="285.0" layoutY="44.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="140.0" promptText="Enter ID number" styleClass="text-field" stylesheets="@../CSS/loginDesign.css" />
       <Label fx:id="lblDate" layoutX="925.0" layoutY="22.0" text="YYYY/MM/DD" textFill="#942626" />
-      <AnchorPane fx:id="apEmployeeManagement" layoutX="289.0" layoutY="90.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="761.0" stylesheets="@../CSS/loginDesign.css">
+      <AnchorPane fx:id="apEmployeeManagement" layoutX="289.0" layoutY="90.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="761.0" stylesheets="@../CSS/loginDesign.css" visible="false">
          <children>
             <TableView fx:id="tblEmployeeDetails" layoutX="14.0" layoutY="350.0" prefHeight="232.0" prefWidth="721.0" style="-fx-background-radius: 10px;" stylesheets="@../CSS/loginDesign.css">
                <columns>
@@ -302,13 +305,13 @@
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0" GridPane.columnIndex="1">
                      <children>
                         <Label styleClass="head-label" stylesheets="@../CSS/loginDesign.css" text="DOB        :" textFill="#a12b2b" />
-                        <TextField fx:id="txtDOB" styleClass="text-field" stylesheets="@../CSS/loginDesign.css" />
+                        <DatePicker fx:id="dpDOB" prefHeight="26.0" prefWidth="172.0" styleClass="text-field" stylesheets="@../CSS/loginDesign.css" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
                         <Label styleClass="head-label" stylesheets="@../CSS/loginDesign.css" text="BRANCH  :" textFill="#a12b2b" />
-                        <TextField fx:id="txtEmployeeManagementBranch" styleClass="text-field" stylesheets="@../CSS/loginDesign.css" />
+                        <ComboBox fx:id="cbBranch" prefHeight="24.0" prefWidth="171.0" styleClass="text-field" stylesheets="@../CSS/loginDesign.css" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
@@ -362,29 +365,21 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <HBox prefHeight="24.0" prefWidth="301.0" spacing="40.0" stylesheets="@../CSS/loginDesign.css">
-                           <children>
-                              <Button fx:id="btnAddProfilePicture" mnemonicParsing="false" onAction="#btnAddProfilePictureOnAction" prefHeight="24.0" prefWidth="62.0" styleClass="btnAdmin" stylesheets="@../CSS/loginDesign.css" text="Add" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0" GridPane.rowIndex="1">
-                           <children>
-                              <Button fx:id="btnDeleteProfilePicture" mnemonicParsing="false" onAction="#btnDeleteProfilePictureOnAction" styleClass="btnAdmin" stylesheets="@../CSS/loginDesign.css" text="Delete" />
-                           </children>
-                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
-                  <AnchorPane fx:id="apEmployeeManagementImage" layoutX="9.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="98.0" prefWidth="99.0" styleClass="image-pane" stylesheets="@../CSS/loginDesign.css">
+                  <AnchorPane fx:id="apEmployeeManagementImage" layoutX="3.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="98.0" prefWidth="99.0" styleClass="image-pane" stylesheets="@../CSS/loginDesign.css">
                      <children>
                         <ImageView fx:id="ivEmployeeManagement" fitHeight="88.0" fitWidth="81.0" layoutX="9.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </AnchorPane>
-                  <Button fx:id="btnImport" layoutX="11.0" layoutY="75.0" mnemonicParsing="false" onAction="#btnImportOnAction" prefHeight="24.0" prefWidth="96.0" stylesheets="@../CSS/loginDesign.css" text="Import">
+                  <Button fx:id="btnImport" layoutX="4.0" layoutY="75.0" mnemonicParsing="false" onAction="#btnImportOnAction" prefHeight="24.0" prefWidth="96.0" stylesheets="@../CSS/loginDesign.css" text="Import">
                      <styleClass>
                         <String fx:value="btnAdmin" />
                         <String fx:value="import-btn" />
                      </styleClass>
                   </Button>
+                  <Button fx:id="btnNewEmployee" layoutX="609.0" layoutY="26.0" mnemonicParsing="false" onAction="#btnNewEmployeeOnAction" styleClass="btnAdmin" stylesheets="@../CSS/loginDesign.css" text="+New Employee" textFill="#97110c" />
                </children>
                <styleClass>
                   <String fx:value="vbox" />
@@ -402,9 +397,10 @@
                         <Image url="@../images/img.png" />
                      </image>
                   </ImageView>
+                  <Line endX="100.0" layoutX="138.0" layoutY="129.0" startX="-100.0" stroke="#460505" />
                </children>
             </Pane>
-            <Button fx:id="btnEmployeeStatus" blendMode="SRC_ATOP" mnemonicParsing="false" onAction="#btnAdminOnAction" prefHeight="77.0" prefWidth="307.0" styleClass="btnAdmin" stylesheets="@../CSS/loginDesign.css" text="Employee Status" textAlignment="JUSTIFY" VBox.vgrow="ALWAYS">
+            <Button fx:id="btnEmployeeStatus" blendMode="SRC_ATOP" mnemonicParsing="false" onAction="#btnAdminOnAction" prefHeight="77.0" prefWidth="307.0" styleClass="main-button" stylesheets="@../CSS/loginDesign.css" text="Employee Status" textAlignment="JUSTIFY" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="18.0" />
                </font>
@@ -412,22 +408,17 @@
                   <Insets />
                </VBox.margin>
             </Button>
-            <Button fx:id="btnTermination" blendMode="SRC_ATOP" mnemonicParsing="false" onAction="#btnAdminOnAction" prefHeight="77.0" prefWidth="307.0" styleClass="btnAdmin" stylesheets="@../CSS/loginDesign.css" text="Termination">
+            <Button fx:id="btnTermination" blendMode="SRC_ATOP" mnemonicParsing="false" onAction="#btnAdminOnAction" prefHeight="77.0" prefWidth="307.0" styleClass="main-button" stylesheets="@../CSS/loginDesign.css" text="Termination">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btnEmployeeManagement" blendMode="SRC_ATOP" mnemonicParsing="false" onAction="#btnAdminOnAction" prefHeight="77.0" prefWidth="307.0" styleClass="btnAdmin" stylesheets="@../CSS/loginDesign.css" text="Employee Management">
+            <Button fx:id="btnEmployeeManagement" blendMode="SRC_ATOP" mnemonicParsing="false" onAction="#btnAdminOnAction" prefHeight="77.0" prefWidth="307.0" styleClass="main-button" stylesheets="@../CSS/loginDesign.css" text="Employee Management">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button blendMode="SRC_ATOP" mnemonicParsing="false" prefHeight="77.0" prefWidth="307.0" styleClass="btnAdmin" stylesheets="@../CSS/loginDesign.css" text="Button">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnExit" blendMode="SRC_ATOP" mnemonicParsing="false" onAction="#btnAdminOnAction" prefHeight="77.0" prefWidth="307.0" styleClass="btnAdmin" stylesheets="@../CSS/loginDesign.css" text="Exit">
+            <Button fx:id="btnLogout" blendMode="SRC_ATOP" mnemonicParsing="false" onAction="#btnAdminOnAction" prefHeight="77.0" prefWidth="307.0" styleClass="main-button" stylesheets="@../CSS/loginDesign.css" text="Logout">
                <font>
                   <Font size="18.0" />
                </font>

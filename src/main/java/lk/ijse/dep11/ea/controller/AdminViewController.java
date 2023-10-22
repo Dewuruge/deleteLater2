@@ -5,7 +5,7 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 
 
-
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -65,22 +65,19 @@ public class AdminViewController {
     public TextField txtNic;
     public TextField txtAddress;
     public Button btnEmployeeManagementSave;
-    public TextField txtEmployeeManagementBranch;
     public TextField txtEmployeeManagementID;
     public TextField txtEmployeeManagementContact;
     public Button btnEmployeeManagementDelete;
-    public Circle shpEmployeeManagementImage;
-    public Button btnAddProfilePicture;
-    public Button btnDeleteProfilePicture;
-    public Button btnExit;
+
 
     public ComboBox <String>cbEmployeeManagementStatus;
     public ComboBox <String>cbEmployeeManagementRole;
-    public TextField txtDOB;
+
     public TextField txtEmployeeManagementUsername;
     private final static String date = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
     public Pane pDetails2;
-    private final String [] role = {"HR","Regular","Admin","IT"};
+    private final String [] role = {"HR","Employee","Admin","IT"};
+    private final String [] branch = {"Galle","Panadura"};
     private final  String [] status = {"Temporary","Intern","Permanent","Probation"};
     public ImageView ivEmployeeManagement;
     public ImageView ivEmployeeStatus;
@@ -89,6 +86,13 @@ public class AdminViewController {
     public AnchorPane apEmployeeManagementImage;
     public String selectedStatus;
     public String selectedRole;
+    public Button btnNewEmployee;
+
+    public String selectedBranch;
+    public Button btnRefresh;
+    public DatePicker dpDOB;
+    public ComboBox <String> cbBranch;
+    public Button btnLogout;
     byte[] imageBytes;
 
 
@@ -96,6 +100,7 @@ public class AdminViewController {
     public void initialize() throws SQLException {
 
         lblDate.setText(date);
+        txtEmployeeManagementID.setEditable(false);
 
         tblEmployeeDetails.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
         tblEmployeeDetails.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -109,35 +114,41 @@ public class AdminViewController {
 //        tblEmployeeDetails.getColumns().get(9).setCellValueFactory(new PropertyValueFactory<>("role"));
 //        tblEmployeeDetails.getColumns().get(10).setCellValueFactory(new PropertyValueFactory<>("username"));
         tblEmployeeDetails.getSelectionModel().selectedItemProperty().addListener((ov, prev, cur) -> {
-            if(cur==null){
-
-                btnEmployeeManagementDelete.setDisable(true);
-            }
             if(cur != null){
+                btnEmployeeManagementSave.setText("Update");
+                btnEmployeeManagementDelete.setDisable(false);
                 txtAddress.setText(cur.getAddress());
-                txtDOB.setText(cur.getDOB().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+                dpDOB.setValue(cur.getDOB());
                 txtEmployeeManagementID.setText(cur.getId());
-                txtEmployeeManagementBranch.setText(cur.getBranch());
+                cbBranch.setValue(cur.getBranch());
                 txtEmployeeManagementContact.setText(cur.getContact());
                 txtNic.setText(cur.getNic());
                 txtEmployeeManagementName.setText(cur.getName());
                 cbEmployeeManagementRole.setValue(cur.getRole());
                 cbEmployeeManagementStatus.setValue(cur.getStatus());
                 txtEmployeeManagementUsername.setText(cur.getUsername());
-                BufferedImage bufImage = null;
+
                 try {
-                    bufImage = ImageIO.read(new ByteArrayInputStream(cur.getByteImg()));
+                    BufferedImage bufImage = ImageIO.read(new ByteArrayInputStream(cur.getByteImg()));
+                    WritableImage fxImage = SwingFXUtils.toFXImage(bufImage, null);
+                    ivEmployeeManagement.setImage(fxImage);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-                WritableImage fxImage = SwingFXUtils.toFXImage(bufImage, null);
-                ivEmployeeManagement.setImage(fxImage);
 
+
+            }
+            else {
+                btnEmployeeManagementDelete.setDisable(true);
+                btnEmployeeManagementSave.setText("Save");
             }
         });
 
+        cbBranch.getSelectionModel().selectedItemProperty().addListener((ov,pre,cut) ->{
+            selectedBranch = cbBranch.getSelectionModel().getSelectedItem();
+        });
         cbEmployeeManagementStatus.getSelectionModel().selectedItemProperty().addListener((ov, prev, cur) ->{
-        selectedStatus = cbEmployeeManagementStatus.getSelectionModel().getSelectedItem();;
+            selectedStatus = cbEmployeeManagementStatus.getSelectionModel().getSelectedItem();;
 
         });
         cbEmployeeManagementRole.getSelectionModel().selectedItemProperty().addListener((ov, prev, cur) ->{
@@ -147,14 +158,16 @@ public class AdminViewController {
 
 //        txtEmployeeManagementID.setDisable(true);
 
-        tblEmployeeDetails.getItems().addAll(EmployeeDataAccess.getAllCustomers());
+        tblEmployeeDetails.getItems().addAll(EmployeeDataAccess.getAllEmployees());
 
         cbEmployeeManagementRole.getItems().addAll(role);
         cbEmployeeManagementStatus.getItems().addAll(status);
+        cbBranch.getItems().addAll(branch);
 
         Platform.runLater(() ->{
+            btnNewEmployee.fire();
             root.requestFocus();
-        });
+        });txtSearch.getText();
 
 
 
@@ -186,7 +199,7 @@ public class AdminViewController {
            apEmployeeManagement.setVisible(true);
 
         }
-        if(actionEvent.getSource() == btnExit){
+        if(actionEvent.getSource() == btnLogout){
             Scene mainScene = new Scene(FXMLLoader.load(getClass().getResource("/view/LoginForm.fxml")));
             Stage stage = new Stage();
             stage.setScene(mainScene);
@@ -201,32 +214,82 @@ public class AdminViewController {
 
         }
 
-    public void btnSearchOnAction(ActionEvent actionEvent) {
+    public void btnSearchOnAction(ActionEvent actionEvent) throws SQLException {
+        if(apEmployeeStatus.isVisible()){
+            boolean found = EmployeeDataAccess.getAllEmployees().stream().anyMatch(employee ->txtSearch.getText().equals(employee.getId()));
+            if(found){
+                Employee employee = EmployeeDataAccess.getOneEmployee(txtSearch.getText());
+                txtEmployeeStatusBranch.setText(employee.getBranch());
+                txtEmployeeStatusContact.setText(employee.getContact());
+                txtEmployeeStatusID.setText(employee.getId());
+                txtEmployeeStatusName.setText(employee.getName());
+
+                try {
+                    BufferedImage bufImage = ImageIO.read(new ByteArrayInputStream(employee.getByteImg()));
+                    WritableImage fxImage = SwingFXUtils.toFXImage(bufImage, null);
+                    ivEmployeeStatus.setImage(fxImage);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+
+            }
+        }
+        else {
+            boolean found = EmployeeDataAccess.getAllEmployees().stream().anyMatch(employee ->txtSearch.getText().equals(employee.getId()));
+            if(found){
+                Employee employee = EmployeeDataAccess.getOneEmployee(txtSearch.getText());
+                txtTerminationBranch.setText(employee.getBranch());
+                txtTerminationContact.setText(employee.getContact());
+                txtTerminationID.setText(employee.getId());
+                txtTerminationName.setText(employee.getName());
+
+                try {
+                    BufferedImage bufImage = ImageIO.read(new ByteArrayInputStream(employee.getByteImg()));
+                    WritableImage fxImage = SwingFXUtils.toFXImage(bufImage, null);
+                    ivTermination.setImage(fxImage);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+        }
+
 
     }
+    }
 
-    public void btnEmployeeManagementSaveOnAction(ActionEvent actionEvent) throws SQLException {
-        LocalDate date = LocalDate.now();
-        cbEmployeeManagementStatus.setOnAction(event -> {
-            // Get the selected text and print it
-            String selectedText = cbEmployeeManagementStatus.getSelectionModel().getSelectedItem();
-
-        });
-
+    public void btnEmployeeManagementSaveOnAction(ActionEvent actionEvent) throws IOException {
+        LocalDate DOB = dpDOB.getValue();
         Employee employee = new Employee(
-                txtEmployeeManagementID.getText(),
-                txtEmployeeManagementName.getText(),
-                txtNic.getText(),
-                txtAddress.getText(),
-                date,
-                txtEmployeeManagementBranch.getText(),
+                txtEmployeeManagementID.getText().strip(),
+                txtEmployeeManagementName.getText().strip(),
+                txtNic.getText().strip(),
+                txtAddress.getText().strip(),
+                DOB,
+                selectedBranch,
                 selectedStatus,
-                txtEmployeeManagementContact.getText(),
-                txtNic.getText(),
+                txtEmployeeManagementContact.getText().strip(),
+                txtNic.getText().strip(),
                 selectedRole,
-                txtEmployeeManagementUsername.getText(),
+                txtEmployeeManagementUsername.getText().strip(),
                 imageBytes);
-        EmployeeDataAccess.saveEmployee(employee);
+
+
+        try {
+            if (btnEmployeeManagementSave.getText().equals("Save")){
+                EmployeeDataAccess.saveEmployee(employee);
+                tblEmployeeDetails.getItems().add(employee);
+            }else{
+                EmployeeDataAccess.updateEmployee(employee);
+                ObservableList<Employee> employeeList = tblEmployeeDetails.getItems();
+                Employee selectedCustomer = tblEmployeeDetails.getSelectionModel().getSelectedItem();
+                employeeList.set(employeeList.indexOf(selectedCustomer), employee);
+                tblEmployeeDetails.refresh();
+            }
+                btnNewEmployee.fire();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Failed to save the customer, try again").show();
+        }
 
 
 
@@ -235,12 +298,6 @@ public class AdminViewController {
     public void btnEmployeeManagementDeleteOnAction(ActionEvent actionEvent) {
     }
 
-    public void btnAddProfilePictureOnAction(ActionEvent actionEvent) throws IOException, SQLException {
-
-    }
-
-    public void btnDeleteProfilePictureOnAction(ActionEvent actionEvent) {
-    }
 
     public void btnImportOnAction(ActionEvent actionEvent) throws IOException {
 
@@ -257,14 +314,48 @@ public class AdminViewController {
         BufferedImage bufImage = ImageIO.read(openFile);
         WritableImage fxImage = SwingFXUtils.toFXImage(bufImage, null);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write(bufImage, "png", baos);
+        ImageIO.write(bufImage, "jpeg", baos);
         imageBytes = baos.toByteArray();
 
         ivEmployeeManagement.setImage(fxImage);
         ivEmployeeManagement.setFitHeight(88); // Set the desired width
         ivEmployeeManagement.setPreserveRatio(true);
-        apEmployeeManagementImage.setTopAnchor(ivEmployeeManagement, (apEmployeeManagementImage.getHeight() - ivEmployeeManagement.getFitHeight()) / 2);
-        apEmployeeManagementImage.setLeftAnchor(ivEmployeeManagement, (apEmployeeManagementImage.getWidth() - ivEmployeeManagement.getFitWidth()) / 2);
+  }
+
+    public void btnNewEmployeeOnAction(ActionEvent actionEvent) {
+        cbEmployeeManagementRole.getSelectionModel().clearSelection();
+        cbEmployeeManagementStatus.getSelectionModel().clearSelection();
+        TextField[] textFields ={txtAddress,txtNic,txtEmployeeManagementContact,txtEmployeeManagementName,
+                txtEmployeeManagementUsername,txtEmployeeManagementID,txtEmployeeManagementContact};
+        for (TextField textField : textFields) {
+            textField.clear();
+
+        }
+        Platform.runLater(()->{
+            txtEmployeeManagementName.requestFocus();
+            dpDOB.setValue(null);
+            cbBranch.getSelectionModel().clearSelection();
+            cbEmployeeManagementStatus.getSelectionModel().clearSelection();
+            cbEmployeeManagementRole.getSelectionModel().clearSelection();
+            tblEmployeeDetails.getSelectionModel().clearSelection();
+            ivEmployeeManagement.setImage(null);
+        });
+        try {
+            String lastEmployeeId = EmployeeDataAccess.getLastCustomerId();
+            if (lastEmployeeId == null) {
+                txtEmployeeManagementID.setText("IJSE-001");
+            } else {
+                int newId = Integer.parseInt(lastEmployeeId.substring(6)) + 1;
+                txtEmployeeManagementID.setText(String.format("IJSE-%03d", newId));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Failed to establish the database connection, try again").show();
+
+        }
+    }
+
+    public void btnRefreshOnAction(ActionEvent actionEvent) {
     }
 }
 
